@@ -38,7 +38,7 @@ public class PriceBuilder {
         return this;
     }
 
-    public Price createPrice() {
-        return new Price(id, ccyPair, bid, ask, dateTime);
+    public InternalPrice createPrice() {
+        return new InternalPrice(id, ccyPair, bid, ask, dateTime);
     }
 }

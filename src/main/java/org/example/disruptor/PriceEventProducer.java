@@ -3,7 +3,7 @@ package org.example.disruptor;
 import com.lmax.disruptor.RingBuffer;
 import org.example.event.Event;
 import org.example.event.PriceEvent;
-import org.example.model.Price;
+import org.example.model.InternalPrice;
 
 public class PriceEventProducer {
     private final RingBuffer<Event> ringBuffer;
@@ -12,7 +12,7 @@ public class PriceEventProducer {
         this.ringBuffer = ringBuffer;
     }
 
-    public void onData(Price data)
+    public void onData(InternalPrice data)
     {
         long sequence = ringBuffer.next();
         try

@@ -1,27 +1,27 @@
 package org.example.event;
 
-import org.example.model.Price;
+import org.example.model.InternalPrice;
 
-public class PriceEvent implements Event<Price> {
+public class PriceEvent implements Event<InternalPrice> {
 
     private EventType type;
-    private Price payload;
+    private InternalPrice payload;
 
     public PriceEvent(EventType type) {
         this(type, null);
     }
 
-    public PriceEvent(EventType eventType, Price payload) {
+    public PriceEvent(EventType eventType, InternalPrice payload) {
         this.type = eventType;
         this.payload = payload;
     }
 
     @Override
-    public Price getPayload() {
+    public InternalPrice getPayload() {
         return payload;
     }
 
-    public void setPayload(Price payload) {
+    public void setPayload(InternalPrice payload) {
         this.payload = payload;
     }
 

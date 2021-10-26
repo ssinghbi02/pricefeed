@@ -3,14 +3,14 @@ package org.example.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Price {
+public class InternalPrice {
     private int id;
     private String ccyPair;
     private String bid;
     private String ask;
     private LocalDateTime dateTime;
 
-    public Price(int id, String ccyPair, String bid, String ask, LocalDateTime dateTime) {
+    public InternalPrice(int id, String ccyPair, String bid, String ask, LocalDateTime dateTime) {
         this.id = id;
         this.ccyPair = ccyPair;
         this.bid = bid;
