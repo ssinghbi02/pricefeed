@@ -6,16 +6,15 @@ import java.io.InputStream;
 
 public abstract class AbstractFileRepository {
 
-    public AbstractFileRepository() {
-    }
-
+    private String location;
+    InputStream inputStream;
     public AbstractFileRepository(String location) {
-        this();
-        read(location);
+        this.location = location;
     }
 
-    protected void read(String location) {
-        InputStream inputStream = this.getClass().getResourceAsStream("/prices.csv");
+
+    protected void read() {
+        inputStream = this.getClass().getResourceAsStream(location);
         if (inputStream == null) {
             throw new IllegalArgumentException("Could not load file:" + location);
         }
@@ -24,16 +23,16 @@ public abstract class AbstractFileRepository {
         } catch (final Exception exception) {
             throw new IllegalArgumentException(location + ": " + exception.getMessage(), exception);
         } finally {
-            closeQuietly(inputStream);
+            closeQuietly();
         }
     }
 
     protected abstract void load(InputStream inputStream);
 
-    public static void closeQuietly(Closeable closable) {
-        if (closable != null) {
+    public void closeQuietly() {
+        if (inputStream != null) {
             try {
-                closable.close();
+                inputStream.close();
             } catch (IOException exception) {
 
             }

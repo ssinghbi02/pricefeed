@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PriceRepository {
     List<InternalPrice> getPrices();
+    void loadData();
+    void stopLoading();
 }

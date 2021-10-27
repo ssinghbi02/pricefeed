@@ -18,12 +18,22 @@ public class PriceFileRepository extends AbstractFileRepository implements Price
     private List<InternalPrice> prices;
 
     public PriceFileRepository() {
-        super("prices.csv");
+        super("/prices.csv");
     }
 
     @Override
     public List<InternalPrice> getPrices() {
         return prices;
+    }
+
+    @Override
+    public void loadData() {
+        read();
+    }
+
+    @Override
+    public void stopLoading() {
+        closeQuietly();
     }
 
     @Override

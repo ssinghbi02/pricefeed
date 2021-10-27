@@ -1,4 +1,4 @@
-package org.example;
+package org.example.handler;
 
 import org.example.event.EventType;
 import org.example.event.PriceEvent;
